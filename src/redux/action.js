@@ -23,7 +23,7 @@ const singleTask =(task) =>({
 
 export const loadTasks = () =>{
   return function (dispatch) {
-    axios.get('http://localhost:3000/todo/').then((response)=>{
+    axios.get('https://my-json-server.typicode.com/moitri-hazra/tasker-server/todo/').then((response)=>{
       
       dispatch(getTasks(response.data));
    
@@ -34,7 +34,7 @@ export const loadTasks = () =>{
   export const deleteTask = (taskID) =>{
     return function (dispatch) {
       
-      axios.delete(`http://localhost:3000/todo/${taskID}`).then((response)=>{
+      axios.delete(`https://my-json-server.typicode.com/moitri-hazra/tasker-server/todo/${taskID}`).then((response)=>{
         
         dispatch(taskDelete());
         dispatch(loadTasks());
@@ -45,7 +45,7 @@ export const loadTasks = () =>{
   
     export const addTask = (task) =>{
       return function (dispatch) {
-        axios.post(`http://localhost:3000/todo/`, task).then((response)=>{
+        axios.post(`https://my-json-server.typicode.com/moitri-hazra/tasker-server/todo/`, task).then((response)=>{
           
           dispatch(taskAdd()); 
           dispatch(loadTasks());
@@ -56,7 +56,7 @@ export const loadTasks = () =>{
 
        export const getSingleTask = (taskID) =>{
     return function (dispatch) {
-      axios.get(`http://localhost:3000/todo/${taskID}`).then((response)=>{
+      axios.get(`https://my-json-server.typicode.com/moitri-hazra/tasker-server/todo/${taskID}`).then((response)=>{
         
         dispatch(singleTask(response.data));
         // dispatch(loadTasks());
